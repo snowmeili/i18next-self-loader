@@ -2,11 +2,6 @@
 
 国际化：自动管理工具
 
-[![NPM version][npm-image]][npm-url] 
-
-[npm-image]: https://img.shields.io/npm/v/miao-i18n.svg?style=flat-square
-[npm-url]: https://www.npmjs.com/package/miao-i18n
-
 ### 背景
 
 前段时间需要把一个开发了两年左右的项目进行国际化，支持中英文，逛了一圈社区都没有发现能很好解决痛点的轮子，比如：
@@ -29,7 +24,7 @@
 * 将资源文件内容挂在到全局 `$i18n`对象上
 * 遍历所有代码，将代码中的中文替换成 `$i18n[key]`
 
-代码已放到 `Github`：[miao-i18n](https://github.com/goldEli/miao-i18n)
+代码已放到 `Github`：[i18next-self-loader](https://github.com/goldEli/i18next-self-loader)
 
 ### 如何使用
 
@@ -45,10 +40,10 @@ create-react-app myapp
 yarn eject
 ```
 
-安装 [miao-i18n](https://github.com/goldEli/miao-i18n)：
+安装 [i18next-self-loader]：
 
 ```shell
-yarn add miao-i18n
+yarn add i18next-self-loader
 ```
 
 配置 `webpack`, 打开 `myapp/config/webpackDevServer.config.js`，由于 `loader`是自下而上执行的，所有我们要把我们的loader配置到最上面，这个很重要。
@@ -62,7 +57,7 @@ module: {
 +    {
 +    test: /\.(js|mjs|jsx|ts|tsx)$/,
 +    exclude: /node_module/,
-+    loader: require.resolve("miao-i18n"),
++    loader: require.resolve("i18next-self-loader"),
 +    },
 ...
 }    
@@ -150,14 +145,6 @@ function App() {
 export default App;
 ```
 
-保存文件，查看浏览器：
-
-![](https://user-gold-cdn.xitu.io/2020/7/10/17337812b70716e8?w=181&h=102&f=png&s=1193)
-
-打开控制台，可以看到源码已经自动完成了国际化编译：
-
-![](https://user-gold-cdn.xitu.io/2020/7/10/17337ed85d51bcac?w=1121&h=499&f=png&s=75818)
-
 此时，资源文件已经自动生成了，打开 `src/i18n/en/data.json` 或者 `src/i18n/zh/data.json` 查看：
 
 ```json
@@ -180,14 +167,4 @@ export default App;
 }
 ```
 
-保存代码，查看浏览器
-
-![](https://user-gold-cdn.xitu.io/2020/7/10/1733707d47cc691f?w=180&h=113&f=png&s=1405)
-
 页面显示为了英文，大功告成！🙂
-
-### 最后
-
-由于此工具目前只在我的项目中使用，所以肯定有很多我没有考虑到的地方，欢迎各位大佬提建议和意见，`Github 地址`: [miao-i18n](https://github.com/goldEli/miao-i18n)
-
-感谢阅读！🌹
