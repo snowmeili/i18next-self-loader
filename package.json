@@ -1,5 +1,5 @@
 {
-  "name": "miao-i18n",
+  "name": "i18next-self-loader",
   "version": "0.1.6",
   "description": "webpack i18n loader",
   "main": "dist/index.js",
